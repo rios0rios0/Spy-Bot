@@ -19,7 +19,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(12, OUTPUT);
   digitalWrite(12, 0);
-  Ethernet.begin(mac);
+  Ethernet.begin(mac, ip);
   //Serial.println("Erro");
   server.begin();
 }
@@ -57,112 +57,87 @@ void loop() {
         }
 
         if (left) {
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
+          digitalWrite(8, 1);
+          digitalWrite(9, 1);   
+          delay(1000);
+          digitalWrite(8, 0);
+          digitalWrite(9, 0);   
         }
         
         if (right) {
           digitalWrite(12, 1);
-          delay(200);
+          digitalWrite(9, 1);
+          delay(1000);
           digitalWrite(12, 0);
-          delay(200);
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
+          digitalWrite(9, 0);
         }
         
         if (front) {
           digitalWrite(12, 1);
-          delay(200);
+          digitalWrite(8, 1);
+          delay(1000);
           digitalWrite(12, 0);
-          delay(200);
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
-          delay(200);
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
+          digitalWrite(8, 0);
         }
         
         if (back) {
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
-          delay(200);
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
-          delay(200);
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
-          delay(200);
-          digitalWrite(12, 1);
-          delay(200);
-          digitalWrite(12, 0);
+          digitalWrite(11, 1);
+          digitalWrite(9, 1);
+          delay(1000);
+          digitalWrite(11, 0);
+          digitalWrite(9, 0);
         }
 
         if (c == '\n' && currentLineIsBlank) {
           client.println("<!DOCTYPE HTML>");
           client.println("<html>");
-          client.println("<script>");
-          client.println("function setURL(url)");
-          client.println("document.getElementById('teste').src = url;");
-          client.println("}");
-          client.println("</script>");
           //client.println("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>");
           //client.println("<html xmlns='http://www.w3.org/1999/xhtml'>");
           client.println("<head>");
           //client.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />");
-          client.println("<title>SecurityBot v1.0</title>");
-          client.println("<style type='text/css'>");
-          client.println(".TitleName {");
-	  client.println("font-size: 16pt;");
-	  client.println("color: #F00;");
-          client.println("}");
-          client.println(".CamName {");
-	  client.println("font-size: 14pt;");
-	  client.println("color: #000;");
-          client.println("}");
-          client.println("</style>");
+          client.println("<title>Webservice - Robo Mordomo v0.9</title>");
           client.println("</head>");
           client.println("<body>");
-          client.println("<p style='text-align: center;'><span class='TitleName'>SecurityBot v1.0</span><br><br>");
-          client.println("<span class='CamName'>Cam: </span>");
+          client.println("<p style='text-align: center;'>Webservice - Robo Mordomo v0.9");
+          
+          client.println("<br><br><br>");
+          client.println("Camera:");
+          client.println("<br>");
+          
           client.println("<table style='margin: auto;'width: '95px;' border=0>");
           client.println("<tbody>");
           client.println("<tr>");
           client.println("<td></td>");
           client.println("<td>");
-          //client.println("<input value='^'; type='button' onclick=setURL(http://192.168.1.200/decoder_control.cgi?loginuse=visit&loginpas=1&command=0&onestep=1)>");
-          client.println("<a href='http://192.168.1.200/decoder_control.cgi?loginuse=visit&loginpas=1&command=0&onestep=1' target='teste'>^</a>");
+          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=0&onestep=1' target='teste'>^</a>");
           client.println("</td>");
           client.println("<td></td>");
           client.println("</tr>");
           client.println("<tr>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.200/decoder_control.cgi?loginuse=visit&loginpas=1&command=4&onestep=1' target='teste'>&lt</a>");
+          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=4&onestep=1' target='teste'>&lt</a>");
           client.println("</td>");
           client.println("<td></td>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.200/decoder_control.cgi?loginuse=visit&loginpas=1&command=6&onestep=1' target='teste'>&gt</a>");
+          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=6&onestep=1' target='teste'>&gt</a>");
           client.println("</td>");
           client.println("</tr>");
           client.println("<tr>");
           client.println("<td></td>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.200/decoder_control.cgi?loginuse=visit&loginpas=1&command=2&onestep=1' target='teste'>v</a>");
+          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=2&onestep=1' target='teste'>v</a>");
           client.println("</td>");
           client.println("<td></td>");
           client.println("</tr>");
           client.println("</tbody>");
           client.println("</table>");
           
-          client.println("<p style='text-align: center;'><iframe marginheight=0 marginwidth=0 width=400 height=300 frameborder=0 scrolling='no' name='main' id='main' src='http://192.168.1.200/videostream.cgi?loginuse=visit&loginpas=1'></iframe>");
-          client.println("<iframe width=0 height=0 name='teste' id='teste'></iframe>");
-          client.println("<p style='text-align: center; font-size: 14pt; color: #000;'>Mov:");
+          //client.println("<p style='text-align: center;'><iframe marginheight=0 marginwidth=0 width=400 height=300 frameborder=0 scrolling='no' name='main' id='main' src='http://192.168.1.102:81/videostream.cgi?loginuse=admin&loginpas=1'></iframe>");
+          //client.println("<iframe width=0 height=0 name='teste' id='teste'></iframe>");
+          
+          
+          
+          client.println("<p style='text-align: center;'>Movimentacao:");
           client.println("<br>");
           client.println("<table style='margin: auto;'width: '95px;' border=0>");
           client.println("<tbody>");
