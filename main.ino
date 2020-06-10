@@ -112,33 +112,31 @@ void loop() {
           client.println("<tr>");
           client.println("<td></td>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=0&onestep=1' target='teste'>^</a>");
+          client.println("<a href='http://192.168.1.200:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=0&onestep=1' target='null'>^</a>");
           client.println("</td>");
           client.println("<td></td>");
           client.println("</tr>");
           client.println("<tr>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=4&onestep=1' target='teste'>&lt</a>");
+          client.println("<a href='http://192.168.1.200:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=4&onestep=1' target='null'>&lt</a>");
           client.println("</td>");
           client.println("<td></td>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=6&onestep=1' target='teste'>&gt</a>");
+          client.println("<a href='http://192.168.1.200:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=6&onestep=1' target='null'>&gt</a>");
           client.println("</td>");
           client.println("</tr>");
           client.println("<tr>");
           client.println("<td></td>");
           client.println("<td>");
-          client.println("<a href='http://192.168.1.102:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=2&onestep=1' target='teste'>v</a>");
+          client.println("<a href='http://192.168.1.200:81/decoder_control.cgi?loginuse=admin&loginpas=1&command=2&onestep=1' target='null'>v</a>");
           client.println("</td>");
           client.println("<td></td>");
           client.println("</tr>");
           client.println("</tbody>");
           client.println("</table>");
           
-          //client.println("<p style='text-align: center;'><iframe marginheight=0 marginwidth=0 width=400 height=300 frameborder=0 scrolling='no' name='main' id='main' src='http://192.168.1.102:81/videostream.cgi?loginuse=admin&loginpas=1'></iframe>");
-          //client.println("<iframe width=0 height=0 name='teste' id='teste'></iframe>");
-          
-          
+          client.println("<p style='text-align: center;'><iframe marginheight=0 marginwidth=0 width=400 height=300 frameborder=0 scrolling='no' name='main' id='main' src='http://192.168.1.200:81/videostream.cgi?loginuse=admin&loginpas=1'></iframe>");
+          client.println("<iframe width=0 height=0 name='null' id='null'></iframe>");
           
           client.println("<p style='text-align: center;'>Movimentacao:");
           client.println("<br>");
@@ -148,7 +146,7 @@ void loop() {
           client.println("<td></td>");
           client.println("<td>");
           
-          client.println("<input type='button' value='↑' onmousedown='up()' onmouseup='off()'>");
+          client.println("<input type='button' value='↑' onmousedown='up()' onmouseup='off()' ontouchstart='up()' ontouchend='off()'>");
           
           client.println("</td>");
           client.println("<td></td>");
@@ -156,13 +154,13 @@ void loop() {
           client.println("<tr>");
           client.println("<td>");
           
-          client.println("<input type='button' value='←' onmousedown='left()' onmouseup='off()'>");
+          client.println("<input type='button' value='←' onmousedown='left()' onmouseup='off()' ontouchstart='left()' ontouchend='off()'>");
           
           client.println("</td>");
           client.println("<td></td>");
           client.println("<td>");
           
-          client.println("<input type='button' value='→' onmousedown='right()' onmouseup='off()'>");
+          client.println("<input type='button' value='→' onmousedown='right()' onmouseup='off()' ontouchstart='right()' ontouchend='off()'>");
           
           client.println("</td>");
           client.println("</tr>");
@@ -170,7 +168,7 @@ void loop() {
           client.println("<td></td>");
           client.println("<td>");
           
-          client.println("<input type='button' value='↓' onmousedown='down()' onmouseup='off()'>");
+          client.println("<input type='button' value='↓' onmousedown='down()' onmouseup='off()' ontouchstart='down()' ontouchend='off()'>");
           
           client.println("</td>");
           client.println("<td></td>");
