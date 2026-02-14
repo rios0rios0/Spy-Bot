@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SecurityBot v1.0</title>
+<style type="text/css">
+.TitleName {
+	font-size: 16pt;
+	color: #F00;
+}
+.CamName {
+	font-size: 14pt;
+	color: #000;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript" src="hold.js"></script>
+<p style='text-align: center;'><span class="TitleName">SecurityBot v1.0</span><br><br>
+<span class="CamName">Cam: </span>
+<table style='margin: auto;'width: '95px;' border=0>
+<tbody>
+<tr>
+<td></td>
+<td>
+<script>
+function setURL(url){
+    document.getElementById('teste').src = url;
+}
+</script>
+<input value=^ type="button" onclick="setURL('http://192.168.1.200/decoder_control.cgi?loginuse=visit&loginpas=1&command=0&onestep=1')">
+<a href='http://192.168.1.200/decoder_control.cgi?loginuse=admin&loginpas=1&command=0&onestep=1' target='teste'>^</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<a href='http://192.168.1.200/decoder_control.cgi?loginuse=admin&loginpas=1&command=4&onestep=1' target='teste'>&lt</a>
+</td>
+<td></td>
+<td>
+<a href='http://192.168.1.200/decoder_control.cgi?loginuse=admin&loginpas=1&command=6&onestep=1' target='teste'>&gt</a>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<a href='http://192.168.1.200/decoder_control.cgi?loginuse=admin&loginpas=1&command=2&onestep=1' target='teste'>v</a>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p style='text-align: center;'><iframe marginheight=0 marginwidth=0 width=400 height=300 frameborder=0 scrolling='no' name='main' id='main' src='http://192.168.1.102:81/videostream.cgi?loginuse=admin&loginpas=1'></iframe>
+<p style='text-align: center; font-size: 14pt; color: #000;'>Mov:
+<br>
+<table style='margin: auto;'width: '95px;' border=0>
+<tbody>
+<tr>
+<td></td>
+<td>
+<form method=get action=''>
+<input type=hidden name=go value=F />
+<input value=^ type="submit" ondblclick="whateverFunc()" onmousedown="func(event)" onmouseup="revert()">
+</form>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<form method=get action=''>
+<input type=hidden name=go value=E />
+<input value=&lt; type="submit" ondblclick="whateverFunc()" onmousedown="func(event)" onmouseup="revert()">
+</form>
+</td>
+<td></td>
+<td>
+<form method=get action=''>
+<input type=hidden name=go value=D />
+<input value=&gt; type="submit" ondblclick="whateverFunc()" onmousedown="func(event)" onmouseup="revert()">
+</form>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<form method=get action=''>
+<input type=hidden name=go value=T />
+<input value=v type="submit" ondblclick="whateverFunc()" onmousedown="func(event)" onmouseup="revert()">
+</form>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</p>
+</body>
+</html>
