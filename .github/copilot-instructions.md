@@ -21,7 +21,10 @@ spy-bot/
 ├── README.md             # Project documentation
 ├── CHANGELOG.md          # Release history (Keep a Changelog format)
 ├── CONTRIBUTING.md       # Historical build information and discontinued status notice
-└── LICENSE               # Project license
+├── LICENSE               # Project license
+└── .github/
+    └── workflows/
+        └── release.yaml  # Reusable release workflow triggered on pushes to main
 ```
 
 ## Technology Stack
@@ -71,7 +74,7 @@ Pan/tilt commands are sent directly from the browser to the IP camera via CGI li
 
 ## Build and Deployment
 
-There is no automated build system, CI/CD pipeline, or test suite — this is an embedded firmware project.
+There is no automated build system or test suite — this is an embedded firmware project. A GitHub Actions release workflow (`.github/workflows/release.yaml`) creates tags on pushes to `main`.
 
 ### Hardware Requirements
 
